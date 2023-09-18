@@ -23,11 +23,9 @@ function handleClick(index) {
     document.getElementById("lost").textContent = lostCount;
 
     // Проверяем условия победы и поражения
-    if (deadCount === targetCount) {
+    if (deadCount === targetCount || lostCount === maxLostCount) {
         resetGame();
-    } else if (lostCount === maxLostCount) {
-        resetGame();
-    }
+    } 
 }
 
 function resetGame() {
