@@ -24,11 +24,17 @@ function handleClick(index) {
 
     // Проверяем условия победы и поражения
     if (deadCount === targetCount) {
-        alert("Вы победили!");
         resetGame();
     } else if (lostCount === maxLostCount) {
-        alert("Игра окончена. Вы проиграли.");
         resetGame();
+    }
+}
+
+function resetGame() {
+    if(deadCount === targetCount) {
+        alert("Вы победили!");
+    } else if (lostCount === maxLostCount) {
+        alert("Игра окончена. Вы проиграли.");
     }
 }
 
