@@ -25,18 +25,34 @@ function handleClick(index) {
     // Проверяем условия победы и поражения
     if (deadCount === targetCount || lostCount === maxLostCount) {
         resetGame();
-    } 
+    }
 }
 
 function resetGame() {
-    if(deadCount === targetCount) {
+    if (deadCount === targetCount) {
         alert("Вы победили!");
     } else if (lostCount === maxLostCount) {
         alert("Игра окончена. Вы проиграли.");
     }
+    
+    // Обнуляем статистику
+    deadCount = 0;
+    lostCount = 0;
+
+    // Начинаем новую игру
+    next();
 }
 
 // Добавляем обработчики клика к каждой лунке
 for (let i = 1; i <= 9; i++) {
     getHole(i).addEventListener('click', () => handleClick(i));
+}
+
+// Вспомогательная функция для запуска новой игры
+function next() {
+    for (let i = 1; i <= 9; i++) {
+        getHole(i).classList.remove('hole_has-mole'); // Убираем кротов из всех лунок
+    }
+    activeHole = Math.floor(1 + Math.random() * 9);
+    activateHole(activeHole);
 }
