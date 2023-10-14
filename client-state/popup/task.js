@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Слушатель для кнопки закрытия окна
     closeButton.addEventListener("click", function () {
         modal.classList.remove("modal_active");
-        // Устанавливаем cookie, чтобы помнить, что окно было закрыто
         document.cookie = "modalClosed=true; max-age=31536000"; // Cookie будет храниться 1 год (в секундах)
     });
 });
